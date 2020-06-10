@@ -236,15 +236,16 @@ background-color: #C5C9CD;
         if (regionEl.length == 0) {
             // it does not, create it
             regionEl = zw.plugin.getOrCreateComposeBoxTopRegionCss(this.id + '-pay', "Apple Pay Widget", this.iconUrlPay, "hidden");
-          regionEl.find('.plugin-composebox-topregion-body').html(`
-          <form>
-            <label for='amount'>$</label>
-            <input type='text' id='amount' name='amount'>
-            <label for='notes'>Notes</label>
-            <input type='text' id='notes' name='notes'>
-            <input type='submit' value='Request'>
-          </form>
-            `);
+            regionEl.find('.plugin-composebox-topregion-body').html(`
+            Apple Pay!
+            <form>
+              <label for='amount'>$</label>
+              <input type='text' id='amount' name='amount'>
+              <label for='notes'>Notes</label>
+              <input type='text' id='notes' name='notes'>
+              <input type='submit' value='Request'>
+            </form>
+              `);
             // make x close button clickable
             regionEl.find('.zk-button').click(this.onClickPayBtn.bind(this));
             // make icon bigger
