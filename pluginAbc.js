@@ -236,7 +236,15 @@ background-color: #C5C9CD;
         if (regionEl.length == 0) {
             // it does not, create it
             regionEl = zw.plugin.getOrCreateComposeBoxTopRegionCss(this.id + '-pay', "Apple Pay Widget", this.iconUrlPay, "hidden");
-            regionEl.find('.plugin-composebox-topregion-body').text("ABC Apple Pay - Coming soon. Lets you accept payments via Apple Pay.");
+          regionEl.find('.plugin-composebox-topregion-body').html(`
+          <form>
+            <label for='amount'>$</label>
+            <input type='text' id='amount' name='amount'>
+            <label for='notes'>Notes</label>
+            <input type='text' id='notes' name='notes'>
+            <input type='submit' value='Request'>
+          </form>
+            `);
             // make x close button clickable
             regionEl.find('.zk-button').click(this.onClickPayBtn.bind(this));
             // make icon bigger
@@ -286,7 +294,9 @@ background-color: #C5C9CD;
         if (regionEl.length == 0) {
             // it does not, create it
             regionEl = zw.plugin.getOrCreateComposeBoxTopRegionCss(this.id + '-cal', "ABC Calendar Widget", this.iconUrlCal, "hidden");
+
             regionEl.find('.plugin-composebox-topregion-body').text("ABC Calendar Entry - Coming soon. Lets you send calendar invites.");
+
             // make x close button clickable
             regionEl.find('.zk-button').click(this.onClickCalBtn.bind(this));
         }
